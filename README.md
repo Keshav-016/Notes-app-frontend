@@ -1,38 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notes App (Frontend)
 
-Its backend is in folder notes_backed_nest-
+This is a modern notes application built with [Next.js](https://nextjs.org), [React](https://react.dev), [Apollo Client](https://www.apollographql.com/docs/react/), and [Tailwind CSS](https://tailwindcss.com/). It allows users to create, view, and manage notes, including marking important notes and user authentication.
+
+**Backend:** The backend is a separate NestJS project (see `notes_backed_nest` folder).
+
+---
+
+## Features
+
+- User authentication (login/register)
+- Create, edit, and delete notes
+- Mark notes as important
+- View all notes or only important notes
+- Profile image upload
+- Responsive UI with Tailwind CSS & MUI
+- Form validation with Yup & React Hook Form
+- GraphQL API integration via Apollo Client
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Apollo Client
+- GraphQL
+- Tailwind CSS
+- MUI (Material UI)
+- React Hook Form & Yup
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Set environment variables:**
+
+   - Create a `.env.local` file and set `NEXT_PUBLIC_APP_BASE_URL` to your backend GraphQL endpoint.
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open the app:**
+   Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+notes-app-frontend(next)/
+├── src/
+│   ├── app/
+│   │   ├── components/        # UI components (NoteCard, NoteList, Navbar, etc.)
+│   │   ├── context/           # React Contexts (User, Notes)
+│   │   ├── graphql/           # GraphQL queries & mutations
+│   │   ├── lib/               # Apollo Client setup & error handling
+│   │   ├── config/            # App messages
+│   │   ├── Validators/        # Yup validation schemas
+│   │   ├── Types/             # TypeScript types
+│   │   ├── importantNotes/    # Important notes page
+│   │   ├── globals.css        # Global styles
+│   │   └── page.tsx           # Main page
+│   └── assets/                # Images
+├── public/                    # Static assets
+├── package.json               # Project metadata & scripts
+├── tailwind.config.ts         # Tailwind CSS config
+├── tsconfig.json              # TypeScript config
+└── README.md                  # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run start` — Start production server
+- `npm run lint` — Lint code
+- `npm run codegen` — Generate GraphQL types
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+Pull requests and issues are welcome! Please open an issue to discuss your ideas or report bugs.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
